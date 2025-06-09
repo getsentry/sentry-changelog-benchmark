@@ -1,9 +1,9 @@
-'use client';
-import {Fragment, useState} from 'react';
+"use client";
+import { Fragment, useState } from "react";
 
-import {Input} from './ui/Input';
+import { Input } from "./ui/Input";
 
-export function TitleSlug({defaultTitle = '', defaultSlug = ''}) {
+export function TitleSlug({ defaultTitle = "", defaultSlug = "" }) {
   const [slug, setSlug] = useState(defaultSlug);
   const [edited, setEdited] = useState(false);
 
@@ -17,13 +17,13 @@ export function TitleSlug({defaultTitle = '', defaultSlug = ''}) {
           className="w-full mb-2"
           required
           defaultValue={defaultTitle}
-          onChange={e => {
+          onChange={(e) => {
             if (!edited) {
               setSlug(
                 `${e.target.value}`
                   .toLowerCase()
-                  .replace(/ /g, '-')
-                  .replace(/[^a-z0-9-]/g, '')
+                  .replace(/ /g, "-")
+                  .replace(/[^a-z0-9-]/g, ""),
               );
             }
           }}
@@ -37,7 +37,7 @@ export function TitleSlug({defaultTitle = '', defaultSlug = ''}) {
           className="form-input w-full mb-2"
           required
           value={slug}
-          onChange={e => {
+          onChange={(e) => {
             setSlug(e.target.value);
             // edited will only be set if the user changes the slug in the input
             setEdited(true);

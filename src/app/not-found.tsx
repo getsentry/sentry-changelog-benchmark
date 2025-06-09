@@ -1,15 +1,17 @@
-'use client';
+"use client";
 
-import {Button} from '@radix-ui/themes';
-import {usePathname} from 'next/navigation';
+import { Button } from "@radix-ui/themes";
+import { usePathname } from "next/navigation";
 
 export default function NotFound() {
-  const pathname = usePathname() ?? '/';
+  const pathname = usePathname() ?? "/";
 
   return (
     <main className="px-8 pt-28">
       <h1 className="font-medium text-3xl mb-4">Page Not Found</h1>
-      <p className="text-lg">We couldn't find the page you were looking for :(</p>
+      <p className="text-lg">
+        We couldn't find the page you were looking for :(
+      </p>
       <div className="pt-8 flex gap-4">
         <Button variant="solid" size="3" asChild>
           <a

@@ -1,13 +1,13 @@
-import { Fragment } from "react";
 import type { Metadata } from "next";
 import { serialize } from "next-mdx-remote/serialize";
+import { Fragment } from "react";
 
-import Header from "./header";
-import { getChangelogs } from "../../server/utils";
-import { ChangelogEntry, ChangelogList } from "@/client/components/list";
+import { type ChangelogEntry, ChangelogList } from "@/client/components/list";
 import { startSpan } from "@sentry/nextjs";
 import type { Plugin } from "unified";
 import { visit } from "unist-util-visit";
+import { getChangelogs } from "../../server/utils";
+import Header from "./header";
 
 export const dynamic = "force-dynamic";
 
@@ -36,7 +36,7 @@ export default async function Page() {
                   ],
                 },
               },
-              true
+              true,
             );
             return {
               id: changelog.id,
@@ -47,9 +47,9 @@ export default async function Page() {
               categories: changelog.categories,
               mdxSummary,
             };
-          }
-        )
-      )
+          },
+        ),
+      ),
   );
 
   return (
@@ -65,7 +65,7 @@ export function generateMetadata(): Metadata {
     description:
       "Stay up to date on everything big and small, from product updates to SDK changes with the Sentry Changelog.",
     alternates: {
-      canonical: `https://sentry.io/changelog/`,
+      canonical: "https://sentry.io/changelog/",
     },
   };
 }
@@ -76,8 +76,8 @@ const stripLinks: Plugin = () => {
       if (node.tagName === "a") {
         node.tagName = "span";
         if (node.properties) {
-          delete node.properties.href;
-          delete node.properties.class;
+          node.properties.href = undefined;
+          node.properties.class = undefined;
         }
       }
     });

@@ -1,13 +1,13 @@
-'use client';
-import {Fragment} from 'react';
-import {GroupBase, Props} from 'react-select';
-import CreatableSelect from 'react-select/creatable';
+"use client";
+import { Fragment } from "react";
+import type { GroupBase, Props } from "react-select";
+import CreatableSelect from "react-select/creatable";
 
 export function Select<
   Option,
   IsMulti extends boolean = false,
   Group extends GroupBase<Option> = GroupBase<Option>,
->(props: Props<Option, IsMulti, Group> & {label: string}) {
+>(props: Props<Option, IsMulti, Group> & { label: string }) {
   return (
     <Fragment>
       <label

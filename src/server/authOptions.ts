@@ -1,10 +1,10 @@
 import { prismaClient } from "@/server/prisma-client";
 import { PrismaAdapter } from "@auth/prisma-adapter";
-import { NextAuthOptions } from "next-auth";
-import { Adapter } from "next-auth/adapters";
-import GoogleProvider from "next-auth/providers/google";
+import type { NextAuthOptions } from "next-auth";
+import type { Adapter } from "next-auth/adapters";
 import CredentialsProvider from "next-auth/providers/credentials";
-import { Provider } from "next-auth/providers/index";
+import GoogleProvider from "next-auth/providers/google";
+import type { Provider } from "next-auth/providers/index";
 
 const providers: Provider[] = [
   GoogleProvider({
@@ -25,7 +25,7 @@ if (process.env.NODE_ENV === "development") {
           email: "test.user@sentry.io",
         };
       },
-    })
+    }),
   );
 }
 

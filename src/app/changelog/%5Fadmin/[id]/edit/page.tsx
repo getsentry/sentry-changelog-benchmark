@@ -1,20 +1,20 @@
-import {Fragment, Suspense, useActionState} from 'react';
-import Link from 'next/link';
+import Link from "next/link";
+import { Fragment, Suspense, useActionState } from "react";
 
-import {prismaClient} from '@/server/prisma-client';
-import {EditChangelogForm} from '@/client/components/forms/editChangelogForm';
+import { EditChangelogForm } from "@/client/components/forms/editChangelogForm";
+import { prismaClient } from "@/server/prisma-client";
 
 export default async function ChangelogCreatePage(props: {
-  params: Promise<{id: string}>;
+  params: Promise<{ id: string }>;
 }) {
   const params = await props.params;
   const categories = await prismaClient.category.findMany({
     orderBy: {
-      name: 'asc',
+      name: "asc",
     },
   });
   const changelog = await prismaClient.changelog.findUnique({
-    where: {id: params.id},
+    where: { id: params.id },
     include: {
       author: true,
       categories: true,

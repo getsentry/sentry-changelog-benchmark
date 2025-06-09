@@ -40,6 +40,8 @@ The application will be available at [http://localhost:3000](http://localhost:30
 ## Contributing
 
 - The application uses Prisma for database management
-- Run `pnpm lint` to check code style
+- Run `pnpm lint` to check code style with Biome
+- Run `pnpm format` to format code
+- Pre-commit hooks automatically format and lint staged files
 - Database migrations are managed through Prisma
 - Sentry integration is configured for error monitoring

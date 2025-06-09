@@ -1,20 +1,20 @@
-'use client';
+"use client";
 
-import 'prism-sentry/index.css';
+import "prism-sentry/index.css";
 
-import {useEffect} from 'react';
-import * as Sentry from '@sentry/nextjs';
-import Error from 'next/error';
+import * as Sentry from "@sentry/nextjs";
+import NextError from "next/error";
+import { useEffect } from "react";
 
-export default function GlobalError({error}) {
+export default function GlobalError({ error }) {
   useEffect(() => {
     Sentry.captureException(error);
   }, [error]);
 
   return (
-    <html>
+    <html lang="en">
       <body>
-        <Error />
+        <NextError />
       </body>
     </html>
   );

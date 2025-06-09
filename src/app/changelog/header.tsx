@@ -1,7 +1,7 @@
-import heroImage from '../../../public/img/hero.png';
-import Image from 'next/image';
+import Image from "next/image";
+import heroImage from "../../../public/img/hero.png";
 
-export default function Header({loading}: {loading?: boolean}) {
+export default function Header({ loading }: { loading?: boolean }) {
   return (
     <div className="w-full mx-auto h-96 relative bg-darkPurple">
       <div className="relative w-full lg:max-w-7xl mx-auto px-4 lg:px-8 pt-8 grid grid-cols-12 items-center">
@@ -9,7 +9,7 @@ export default function Header({loading}: {loading?: boolean}) {
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <Image
           className={`justify-self-center col-span-10 hidden lg:block ${
-            loading ? 'animate-fade-in-left' : ''
+            loading ? "animate-fade-in-left" : ""
           }`}
           src={heroImage}
           alt="Sentry Changelog Illustration"
@@ -18,7 +18,7 @@ export default function Header({loading}: {loading?: boolean}) {
         />
         <div
           className={`relative col-span-12 mt-32 lg:absolute lg:w-96 lg:right-1/4 lg:-bottom-2 ${
-            loading ? 'animate-fade-in-right' : ''
+            loading ? "animate-fade-in-right" : ""
           }`}
         >
           <h1 className="justify-self-center text-white font-bold text-4xl text-center lg:text-left mb-2">
@@ -34,7 +34,8 @@ export default function Header({loading}: {loading?: boolean}) {
             >
               @SentryChangelog
             </a>
-            &nbsp;to stay up to date on everything from product updates to SDK changes.
+            &nbsp;to stay up to date on everything from product updates to SDK
+            changes.
           </h2>
         </div>
       </div>

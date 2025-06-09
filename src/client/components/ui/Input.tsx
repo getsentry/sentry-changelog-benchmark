@@ -1,4 +1,4 @@
-import {forwardRef, Fragment} from 'react';
+import { Fragment, forwardRef } from "react";
 
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label: string;
@@ -6,10 +6,13 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
 }
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
-  ({label, name, type, className, required, ...props}, ref) => {
+  ({ label, name, type, className, required, ...props }, ref) => {
     return (
       <div className={className}>
-        <label htmlFor={name} className="block text-xs font-medium text-gray-700">
+        <label
+          htmlFor={name}
+          className="block text-xs font-medium text-gray-700"
+        >
           {label}
           {required && (
             <Fragment>
@@ -28,5 +31,5 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         />
       </div>
     );
-  }
+  },
 );

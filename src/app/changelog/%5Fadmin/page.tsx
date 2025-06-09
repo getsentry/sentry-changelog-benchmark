@@ -1,18 +1,18 @@
-import {Fragment} from 'react';
-import {PlusIcon} from '@radix-ui/react-icons';
-import {Button, Text} from '@radix-ui/themes';
-import Link from 'next/link';
+import { PlusIcon } from "@radix-ui/react-icons";
+import { Button, Text } from "@radix-ui/themes";
+import Link from "next/link";
+import { Fragment } from "react";
 
-import Confirm from './confirm';
-import {prismaClient} from '@/server/prisma-client';
 import {
   deleteChangelog,
   publishChangelog,
   unpublishChangelog,
-} from '@/server/actions/changelog';
-import {getServerSession} from 'next-auth/next';
-import {notFound} from 'next/navigation';
-import {authOptions} from '@/server/authOptions';
+} from "@/server/actions/changelog";
+import { authOptions } from "@/server/authOptions";
+import { prismaClient } from "@/server/prisma-client";
+import { getServerSession } from "next-auth/next";
+import { notFound } from "next/navigation";
+import Confirm from "./confirm";
 
 export default async function ChangelogsListPage() {
   const session = await getServerSession(authOptions);
@@ -27,7 +27,7 @@ export default async function ChangelogsListPage() {
       author: true,
     },
     orderBy: {
-      createdAt: 'desc',
+      createdAt: "desc",
     },
   });
 
@@ -46,23 +46,23 @@ export default async function ChangelogsListPage() {
         <p>Post Guidelines</p>
         <ul>
           <li>
-            - Be very matter of fact, direct, and simple. Avoid using words like "excited
-            to announce".
+            - Be very matter of fact, direct, and simple. Avoid using words like
+            "excited to announce".
           </li>
           <li>- Spell out the what, the why, and how to use it.</li>
           <li>
-            - Avoid exclamation points, adjectives, references to competition, and
-            personal opinions.
+            - Avoid exclamation points, adjectives, references to competition,
+            and personal opinions.
           </li>
         </ul>
       </header>
 
       <table className="table-fixed w-11/12 mx-auto text-sm text-left text-gray-500">
         <colgroup>
-          <col style={{width: '30%'}} />
-          <col style={{width: '30%'}} />
-          <col style={{width: '20%'}} />
-          <col style={{width: '20%'}} />
+          <col style={{ width: "30%" }} />
+          <col style={{ width: "30%" }} />
+          <col style={{ width: "20%" }} />
+          <col style={{ width: "20%" }} />
         </colgroup>
         <thead className="text-xs text-gray-700 uppercase bg-gray-50">
           <tr>
@@ -84,12 +84,17 @@ export default async function ChangelogsListPage() {
             </tr>
           )}
 
-          {changelogs.map(changelog => (
-            <tr key={changelog.id} className="bg-white border-b hover:bg-gray-50">
-              <td className="px-6 py-2 font-medium text-gray-900">{changelog.title}</td>
+          {changelogs.map((changelog) => (
+            <tr
+              key={changelog.id}
+              className="bg-white border-b hover:bg-gray-50"
+            >
+              <td className="px-6 py-2 font-medium text-gray-900">
+                {changelog.title}
+              </td>
 
               <td className="px-4 py-2 break-words">
-                {changelog.categories.map(category => (
+                {changelog.categories.map((category) => (
                   <div
                     key={category.id}
                     className="inline whitespace-nowrap p-2 uppercase shadow-sm no-underline rounded-full text-red text-xs mr-1 mb-4 bg-gray-100"
@@ -102,12 +107,15 @@ export default async function ChangelogsListPage() {
                 {changelog.published && (
                   <span className="text-gray-500">
                     <Text size="1">
-                      {' '}
-                      {new Date(changelog.publishedAt || '').toLocaleDateString('en-EN', {
-                        month: 'long',
-                        day: 'numeric',
-                        timeZone: 'UTC',
-                      })}
+                      {" "}
+                      {new Date(changelog.publishedAt || "").toLocaleDateString(
+                        "en-EN",
+                        {
+                          month: "long",
+                          day: "numeric",
+                          timeZone: "UTC",
+                        },
+                      )}
                     </Text>
                     <br />
                   </span>

@@ -1,4 +1,4 @@
-import {LoadingArticle} from '@/client/components/article';
+import { LoadingArticle } from "@/client/components/article";
 
 export default function Loading() {
   return (

@@ -1,5 +1,5 @@
-import {Button} from '../ui/Button';
-import squiggleImage from './squiggle.png';
+import { Button } from "../ui/Button";
+import squiggleImage from "./squiggle.png";
 
 export default function ArticleFooter() {
   return (

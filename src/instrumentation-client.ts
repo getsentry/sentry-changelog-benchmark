@@ -1,6 +1,6 @@
-import * as SentryCore from '@sentry/core';
-import * as Sentry from '@sentry/nextjs';
-import * as Spotlight from '@spotlightjs/spotlight';
+import * as SentryCore from "@sentry/core";
+import * as Sentry from "@sentry/nextjs";
+import * as Spotlight from "@spotlightjs/spotlight";
 
 Sentry.init({
   dsn: process.env.NEXT_PUBLIC_SENTRY_DSN,
@@ -11,12 +11,12 @@ Sentry.init({
   integrations: [
     Sentry.replayIntegration(),
     SentryCore.thirdPartyErrorFilterIntegration({
-      filterKeys: ['sentry-changelog'],
-      behaviour: 'apply-tag-if-contains-third-party-frames',
+      filterKeys: ["sentry-changelog"],
+      behaviour: "apply-tag-if-contains-third-party-frames",
     }),
   ],
 });
 
-if (process.env.NODE_ENV === 'development') {
+if (process.env.NODE_ENV === "development") {
   Spotlight.init();
 }

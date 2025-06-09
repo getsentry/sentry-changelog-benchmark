@@ -1,19 +1,19 @@
-import 'prism-sentry/index.css';
-import styles from './layout.module.css';
+import "prism-sentry/index.css";
+import styles from "./layout.module.css";
 
-import {Fragment, ReactNode} from 'react';
-import type {Metadata} from 'next';
-import NextTopLoader from 'nextjs-toploader';
-import {Navbar} from '@/client/components/navbar';
+import { Navbar } from "@/client/components/navbar";
+import type { Metadata } from "next";
+import NextTopLoader from "nextjs-toploader";
+import { Fragment, type ReactNode } from "react";
 
 export const metadata: Metadata = {
-  title: {template: '%s | Sentry Changelog', default: 'Changelog'},
+  title: { template: "%s | Sentry Changelog", default: "Changelog" },
   openGraph: {
-    images: '/img/hero.png',
+    images: "/img/hero.png",
   },
 };
 
-export default function ChangelogLayout({children}: {children: ReactNode}) {
+export default function ChangelogLayout({ children }: { children: ReactNode }) {
   return (
     <Fragment>
       <NextTopLoader color="#8d5494" />

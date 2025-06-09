@@ -1,5 +1,5 @@
-import {prismaClient} from '@/server/prisma-client';
-import {unstable_cache} from 'next/cache';
+import { prismaClient } from "@/server/prisma-client";
+import { unstable_cache } from "next/cache";
 
 export const getChangelogs = unstable_cache(
   async () => {
@@ -11,10 +11,10 @@ export const getChangelogs = unstable_cache(
         published: true,
       },
       orderBy: {
-        publishedAt: 'desc',
+        publishedAt: "desc",
       },
     });
   },
-  ['changelogs'],
-  {tags: ['changelogs']}
+  ["changelogs"],
+  { tags: ["changelogs"] },
 );

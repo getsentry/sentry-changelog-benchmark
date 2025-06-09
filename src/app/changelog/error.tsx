@@ -1,13 +1,13 @@
-'use client'; // Error components must be Client Components
+"use client"; // Error components must be Client Components
 
-import {Fragment, useEffect} from 'react';
-import * as Sentry from '@sentry/nextjs';
+import * as Sentry from "@sentry/nextjs";
+import { Fragment, useEffect } from "react";
 
-export default function Error({
+export default function ErrorPage({
   error,
   reset,
 }: {
-  error: Error & {digest?: string};
+  error: Error & { digest?: string };
   reset: () => void;
 }) {
   useEffect(() => {
@@ -21,15 +21,16 @@ export default function Error({
           <h1 className="justify-self-center text-white font-bold text-4xl text-center">
             ಠ_ಠ Something went wrong!
           </h1>
-          <a
-            className="text-gold font-bold text-xl cursor-pointer hover:underline"
+          <button
+            type="button"
+            className="text-gold font-bold text-xl cursor-pointer hover:underline bg-transparent border-none"
             onClick={
               // Attempt to recover by trying to re-render the segment
               () => reset()
             }
           >
             Try again
-          </a>
+          </button>
         </div>
         <div className="hero-bottom-left-down-slope absolute bottom-0 w-full h-10 bg-gray-200" />
       </div>

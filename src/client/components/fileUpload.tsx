@@ -1,10 +1,10 @@
-'use client';
-import {Fragment, useState} from 'react';
+"use client";
+import { Fragment, useState } from "react";
 
-import {Input} from './ui/Input';
-import {uploadImage} from '../uploadImage';
+import { uploadImage } from "../uploadImage";
+import { Input } from "./ui/Input";
 
-export function FileUpload({defaultFile = ''}) {
+export function FileUpload({ defaultFile = "" }) {
   const [loading, setLoading] = useState(false);
   const [file, setFile] = useState(defaultFile);
 
@@ -14,7 +14,7 @@ export function FileUpload({defaultFile = ''}) {
         name="temp"
         label="Hero Image"
         type="file"
-        onChange={async e => {
+        onChange={async (e) => {
           if (e.target.files === null) {
             return;
           }
@@ -33,7 +33,9 @@ export function FileUpload({defaultFile = ''}) {
           <input type="hidden" name="image" value={file} />
         </Fragment>
       )}
-      <span className="text-xs text-gray-500 italic">Image is not required</span>
+      <span className="text-xs text-gray-500 italic">
+        Image is not required
+      </span>
     </Fragment>
   );
 }

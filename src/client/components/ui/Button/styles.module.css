@@ -36,9 +36,7 @@
   box-shadow: none;
   outline: 0 solid #6a5fc1;
   outline-offset: 0.125rem;
-  transition:
-    background-position 0.2s,
-    outline-width 0.2s;
+  transition: background-position 0.2s, outline-width 0.2s;
 }
 
 .solid-btn:hover {
@@ -69,23 +67,17 @@
   outline: 0 solid #fa7faa;
   outline-offset: 0.125rem;
   position: relative;
-  transition:
-    background-position 0.2s,
-    outline-width 0.2s;
+  transition: background-position 0.2s, outline-width 0.2s;
   z-index: 0;
 }
 
 .outline-btn:before {
   background: linear-gradient(11deg, #c83852, #b44092 50%, #6a5fc1);
   border-radius: 0.5rem;
-  content: '';
+  content: "";
   inset: 0;
-  -webkit-mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-  mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   padding: 0.125rem;

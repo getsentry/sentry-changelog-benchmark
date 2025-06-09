@@ -1,15 +1,15 @@
-import {getChangelogs} from '@/server/utils';
-import RSS from 'rss';
+import { getChangelogs } from "@/server/utils";
+import RSS from "rss";
 
 export async function GET() {
   const feed = new RSS({
-    title: 'Sentry Changelog',
+    title: "Sentry Changelog",
     description:
-      'Stay up to date on everything big and small, from product updates to SDK changes with the Sentry Changelog.',
-    feed_url: 'https://sentry.io/changelog/feed.xml',
-    site_url: 'https://sentry.io/changelog',
+      "Stay up to date on everything big and small, from product updates to SDK changes with the Sentry Changelog.",
+    feed_url: "https://sentry.io/changelog/feed.xml",
+    site_url: "https://sentry.io/changelog",
     copyright: `Copyright ${new Date().getFullYear().toString()}, Sentry`,
-    language: 'en-US',
+    language: "en-US",
     pubDate: new Date().toUTCString(),
     ttl: 60,
   });
@@ -18,19 +18,19 @@ export async function GET() {
 
   if (allChangelogs) {
     allChangelogs
-      .filter(changelog => {
+      .filter((changelog) => {
         return changelog.publishedAt !== null;
       })
-      .map(changelog => {
+      .map((changelog) => {
         return feed.item({
           title: changelog.title,
           description:
             changelog.summary ??
             (changelog.content && `${changelog.content?.slice(0, 100)}...`) ??
-            '',
+            "",
           url: `https://sentry.io/changelog/${changelog.slug}`,
           categories:
-            changelog.categories.map(category => {
+            changelog.categories.map((category) => {
               return category.name;
             }) || [],
           date: changelog.publishedAt!,
@@ -38,9 +38,9 @@ export async function GET() {
       });
   }
 
-  return new Response(feed.xml({indent: true}), {
+  return new Response(feed.xml({ indent: true }), {
     headers: {
-      'Content-Type': 'application/xml; charset=utf-8',
+      "Content-Type": "application/xml; charset=utf-8",
     },
   });
 }

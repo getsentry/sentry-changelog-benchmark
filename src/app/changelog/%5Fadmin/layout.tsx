@@ -1,16 +1,16 @@
-import {type ReactNode, Suspense} from 'react';
-import type {Metadata} from 'next';
-import {getServerSession} from 'next-auth/next';
+import type { Metadata } from "next";
+import { getServerSession } from "next-auth/next";
+import { type ReactNode, Suspense } from "react";
 
-import LoginButton from '@/client/components/loginButton';
-import {NextAuthSessionProvider} from '@/client/components/nextAuthSessionProvider';
-import {authOptions} from '@/server/authOptions';
+import LoginButton from "@/client/components/loginButton";
+import { NextAuthSessionProvider } from "@/client/components/nextAuthSessionProvider";
+import { authOptions } from "@/server/authOptions";
 
 export const metadata: Metadata = {
-  robots: 'noindex, nofollow',
+  robots: "noindex, nofollow",
 };
 
-export default async function Layout({children}: {children: ReactNode}) {
+export default async function Layout({ children }: { children: ReactNode }) {
   const session = await getServerSession(authOptions);
 
   let content = (
