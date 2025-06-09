@@ -4,6 +4,7 @@ import { Fragment } from "react";
 
 import { type ChangelogEntry, ChangelogList } from "@/client/components/list";
 import { startSpan } from "@sentry/nextjs";
+import type { Element } from "hast";
 import type { Plugin } from "unified";
 import { visit } from "unist-util-visit";
 import { getChangelogs } from "../../server/utils";
@@ -72,7 +73,7 @@ export function generateMetadata(): Metadata {
 
 const stripLinks: Plugin = () => {
   return (tree) => {
-    return visit(tree, "element", (node: any) => {
+    return visit(tree, "element", (node: Element) => {
       if (node.tagName === "a") {
         node.tagName = "span";
         if (node.properties) {

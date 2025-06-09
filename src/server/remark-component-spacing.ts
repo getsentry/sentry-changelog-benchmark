@@ -6,7 +6,7 @@ import { visit } from "unist-util-visit";
 const affectedComponents = ["PlatformIdentifier"];
 
 const remarkComponentSpacing: Plugin<undefined[], Root> =
-  () => (tree, _file) => {
+  () => (tree: any, _file: any) => {
     let componentNode: Node | undefined = undefined;
     let componentNodeParent: Node | undefined = undefined;
     return visit(tree, (node, _, parent) => {
@@ -21,13 +21,10 @@ const remarkComponentSpacing: Plugin<undefined[], Root> =
         }
         componentNode = componentNodeParent = undefined;
       } else if (
-        // @ts-expect-error TODO(lforst): leftover from migration
         node.type === "mdxJsxTextElement" &&
-        // @ts-expect-error TODO(lforst): leftover from migration
         affectedComponents.includes(node.name ?? "")
       ) {
         componentNode = node;
-        // @ts-ignore TODO(lforst): leftover from migration
         componentNodeParent = parent;
       }
     });
