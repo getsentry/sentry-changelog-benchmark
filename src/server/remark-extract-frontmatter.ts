@@ -3,9 +3,10 @@ import type { Root } from "mdast";
 import type { Plugin } from "unified";
 import { visit } from "unist-util-visit";
 
-const extractFrontmatter: Plugin<undefined[], Root> = () => (tree, file) => {
-  visit(tree, "yaml", (node) => {
-    file.data.frontmatter = load(node.value);
-  });
-};
+const extractFrontmatter: Plugin<undefined[], Root> =
+  () => (tree: any, file: any) => {
+    visit(tree, "yaml", (node) => {
+      file.data.frontmatter = load(node.value);
+    });
+  };
 export default extractFrontmatter;
