@@ -87,6 +87,9 @@ importers:
       textarea-markdown-editor:
         specifier: ^1.0.4
         version: 1.0.4(react-dom@19.0.0-rc.1(react@19.0.0-rc.1))(react@19.0.0-rc.1)
+      unified:
+        specifier: 10.1.2
+        version: 10.1.2
       webpack-hook-plugin:
         specifier: ^1.0.7
         version: 1.0.7

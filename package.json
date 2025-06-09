@@ -43,6 +43,7 @@
     "rss": "^1.2.2",
     "sass": "^1.69.5",
     "textarea-markdown-editor": "^1.0.4",
+    "unified": "10.1.2",
     "webpack-hook-plugin": "^1.0.7"
   },
   "devDependencies": {
