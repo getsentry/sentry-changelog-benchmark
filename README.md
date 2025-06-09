@@ -6,30 +6,38 @@ A Next.js application for managing and displaying Sentry's product changelog.
 
 ### Prerequisites
 
-- Node.js 20.11.0 (managed via Volta)
+- [Volta](https://volta.sh/) for Node.js version management
 - pnpm 9.15.0
 
 ### Development
 
-1. **Start the database**
+1. **Install Node.js via Volta**
 
    ```bash
-   docker-compose up -d
+   # Volta will automatically install the correct Node.js version
+   # when you enter the project directory
+   volta install node
    ```
 
-2. **Install dependencies**
+2. **Start the database**
+
+   ```bash
+   docker compose up -d
+   ```
+
+3. **Install dependencies**
 
    ```bash
    pnpm install
    ```
 
-3. **Set up the database**
+4. **Set up the database**
 
    ```bash
    pnpm migrate:dev
    ```
 
-4. **Start the development server**
+5. **Start the development server**
 
    ```bash
    pnpm dev
