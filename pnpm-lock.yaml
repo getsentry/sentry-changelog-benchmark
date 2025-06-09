@@ -90,6 +90,9 @@ importers:
       unified:
         specifier: 10.1.2
         version: 10.1.2
+      unist-util-visit:
+        specifier: 4.1.2
+        version: 4.1.2
       webpack-hook-plugin:
         specifier: ^1.0.7
         version: 1.0.7
