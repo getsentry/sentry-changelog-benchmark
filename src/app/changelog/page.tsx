@@ -10,6 +10,64 @@ import { visit } from "unist-util-visit";
 import { getChangelogs } from "../../server/utils";
 import Header from "./header";
 
+// Import dummy components for sourcemap testing (30% of components)
+import {
+  DummyComponent001,
+  DummyComponent002,
+  DummyComponent003,
+  DummyComponent004,
+  DummyComponent005,
+  DummyComponent006,
+  DummyComponent007,
+  DummyComponent008,
+  DummyComponent009,
+  DummyComponent010,
+  DummyComponent011,
+  DummyComponent012,
+  DummyComponent013,
+  DummyComponent014,
+  DummyComponent015,
+} from "@/dummy/components";
+import {
+  DummyService001,
+  DummyService002,
+  DummyService003,
+} from "@/dummy/services";
+import {
+  DummyUtil001,
+  DummyUtil002,
+  DummyUtil003,
+  DummyUtil004,
+  DummyUtil005,
+} from "@/dummy/utils";
+
+// Reference them to prevent tree-shaking
+const dummyRefs = [
+  DummyComponent001,
+  DummyComponent002,
+  DummyComponent003,
+  DummyComponent004,
+  DummyComponent005,
+  DummyComponent006,
+  DummyComponent007,
+  DummyComponent008,
+  DummyComponent009,
+  DummyComponent010,
+  DummyComponent011,
+  DummyComponent012,
+  DummyComponent013,
+  DummyComponent014,
+  DummyComponent015,
+  DummyUtil001,
+  DummyUtil002,
+  DummyUtil003,
+  DummyUtil004,
+  DummyUtil005,
+  DummyService001,
+  DummyService002,
+  DummyService003,
+];
+
 export const dynamic = "force-dynamic";
 
 export default async function Page() {

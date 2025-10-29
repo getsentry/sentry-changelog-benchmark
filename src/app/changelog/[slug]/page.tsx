@@ -13,6 +13,64 @@ import { authOptions } from "@/server/authOptions";
 import { mdxOptions } from "@/server/mdxOptions";
 import { prismaClient } from "@/server/prisma-client";
 
+// Import dummy components for sourcemap testing (30% of components)
+import {
+  DummyComponent016,
+  DummyComponent017,
+  DummyComponent018,
+  DummyComponent019,
+  DummyComponent020,
+  DummyComponent021,
+  DummyComponent022,
+  DummyComponent023,
+  DummyComponent024,
+  DummyComponent025,
+  DummyComponent026,
+  DummyComponent027,
+  DummyComponent028,
+  DummyComponent029,
+  DummyComponent030,
+} from "@/dummy/components";
+import {
+  DummyService004,
+  DummyService005,
+  DummyService006,
+} from "@/dummy/services";
+import {
+  DummyUtil006,
+  DummyUtil007,
+  DummyUtil008,
+  DummyUtil009,
+  DummyUtil010,
+} from "@/dummy/utils";
+
+// Reference them to prevent tree-shaking
+const dummyRefs = [
+  DummyComponent016,
+  DummyComponent017,
+  DummyComponent018,
+  DummyComponent019,
+  DummyComponent020,
+  DummyComponent021,
+  DummyComponent022,
+  DummyComponent023,
+  DummyComponent024,
+  DummyComponent025,
+  DummyComponent026,
+  DummyComponent027,
+  DummyComponent028,
+  DummyComponent029,
+  DummyComponent030,
+  DummyUtil006,
+  DummyUtil007,
+  DummyUtil008,
+  DummyUtil009,
+  DummyUtil010,
+  DummyService004,
+  DummyService005,
+  DummyService006,
+];
+
 export const dynamic = "force-dynamic";
 
 export async function generateMetadata(

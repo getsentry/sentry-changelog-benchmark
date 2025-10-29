@@ -11,7 +11,9 @@
       "dist/**",
       "*.config.js",
       "*.config.mjs",
-      "*.config.ts"
+      "*.config.ts",
+      "src/dummy/**",
+      "scripts/generate-dummy-code.js"
     ]
   },
   "formatter": {

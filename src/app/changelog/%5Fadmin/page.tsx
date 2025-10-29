@@ -14,6 +14,47 @@ import { getServerSession } from "next-auth/next";
 import { notFound } from "next/navigation";
 import Confirm from "./confirm";
 
+// Import dummy components for sourcemap testing (20% of components)
+import {
+  DummyComponent031,
+  DummyComponent032,
+  DummyComponent033,
+  DummyComponent034,
+  DummyComponent035,
+  DummyComponent036,
+  DummyComponent037,
+  DummyComponent038,
+  DummyComponent039,
+  DummyComponent040,
+} from "@/dummy/components";
+import { DummyService007, DummyService008 } from "@/dummy/services";
+import {
+  DummyUtil011,
+  DummyUtil012,
+  DummyUtil013,
+  DummyUtil014,
+} from "@/dummy/utils";
+
+// Reference them to prevent tree-shaking
+const dummyRefs = [
+  DummyComponent031,
+  DummyComponent032,
+  DummyComponent033,
+  DummyComponent034,
+  DummyComponent035,
+  DummyComponent036,
+  DummyComponent037,
+  DummyComponent038,
+  DummyComponent039,
+  DummyComponent040,
+  DummyUtil011,
+  DummyUtil012,
+  DummyUtil013,
+  DummyUtil014,
+  DummyService007,
+  DummyService008,
+];
+
 export default async function ChangelogsListPage() {
   const session = await getServerSession(authOptions);
 

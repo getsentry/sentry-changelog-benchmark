@@ -4,8 +4,8 @@ import WebpackHookPlugin from "webpack-hook-plugin";
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   trailingSlash: true,
-  // Disable sourcemaps generation
-  productionBrowserSourceMaps: false,
+  // Enable sourcemaps generation for testing
+  productionBrowserSourceMaps: true,
   eslint: {
     ignoreDuringBuilds: true,
   },
@@ -18,6 +18,9 @@ const nextConfig = {
         })
       );
     }
+
+    // Force sourcemap generation for all chunks
+    config.devtool = 'source-map';
 
     return config;
   },
@@ -47,8 +50,8 @@ export default withSentryConfig(nextConfig, {
   // Upload a larger set of source maps for prettier stack traces (increases build time)
   widenClientFileUpload: true,
 
-  // Hides source maps from generated client bundles
-  hideSourceMaps: true,
+  // Enable source maps for testing
+  hideSourceMaps: false,
 
   // Automatically tree-shake Sentry logger statements to reduce bundle size
   disableLogger: process.env.NODE_ENV === "production",
