@@ -39,11 +39,6 @@ export default withSentryConfig(nextConfig, {
   org: "sentry",
   project: "changelog",
 
-  // Disable source map uploading to Sentry
-  sourcemaps: {
-    disable: true,
-  },
-
   // Suppresses source map uploading logs during build
   silent: !process.env.CI,
 
