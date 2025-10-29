@@ -4,6 +4,8 @@ import WebpackHookPlugin from "webpack-hook-plugin";
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   trailingSlash: true,
+  // Disable sourcemaps generation
+  productionBrowserSourceMaps: false,
   eslint: {
     ignoreDuringBuilds: true,
   },
@@ -33,6 +35,11 @@ const nextConfig = {
 export default withSentryConfig(nextConfig, {
   org: "sentry",
   project: "changelog",
+
+  // Disable source map uploading to Sentry
+  sourcemaps: {
+    disable: true,
+  },
 
   // Suppresses source map uploading logs during build
   silent: !process.env.CI,
