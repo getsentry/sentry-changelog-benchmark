@@ -34,9 +34,9 @@ export async function unpublishChangelog(
     return { message: "Unable to unpublish changelog", success: false };
   }
 
-  revalidateTag("changelogs");
-  revalidateTag("changelog-detail");
-  revalidatePath("/changelog/_admin");
+  revalidateTag("changelogs", {});
+  revalidateTag("changelog-detail", {});
+  revalidatePath("/changelog/_admin", "page");
   return { success: true };
 }
 
@@ -62,9 +62,9 @@ export async function publishChangelog(
     return { message: "Unable to publish changelog", success: false };
   }
 
-  revalidateTag("changelogs");
-  revalidateTag("changelog-detail");
-  revalidatePath("/changelog/_admin");
+  revalidateTag("changelogs", {});
+  revalidateTag("changelog-detail", {});
+  revalidatePath("/changelog/_admin", "page");
   return { success: true };
 }
 
@@ -147,8 +147,8 @@ export async function editChangelog(
     return { message: (error as Error).message, success: false };
   }
 
-  revalidateTag("changelogs");
-  revalidateTag("changelog-detail");
+  revalidateTag("changelogs", {});
+  revalidateTag("changelog-detail", {});
   return redirect("/changelog/_admin");
 }
 
@@ -171,9 +171,9 @@ export async function deleteChangelog(
     return { message: "Unable to delete changelog", success: false };
   }
 
-  revalidateTag("changelogs");
-  revalidateTag("changelog-detail");
-  revalidatePath("/changelog/_admin");
+  revalidateTag("changelogs", {});
+  revalidateTag("changelog-detail", {});
+  revalidatePath("/changelog/_admin", "page");
   return {
     success: true,
   };

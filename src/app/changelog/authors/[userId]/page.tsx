@@ -7,15 +7,16 @@ import { notFound } from "next/navigation";
 export const dynamic = "force-dynamic";
 
 interface AuthorPageProps {
-  params: {
+  params: Promise<{
     userId: string;
-  };
+  }>;
 }
 
 export async function generateMetadata({
   params,
 }: AuthorPageProps): Promise<Metadata> {
-  const profile = await getAuthorProfile(params.userId);
+  const { userId } = await params;
+  const profile = await getAuthorProfile(userId);
 
   if (!profile) {
     return {
@@ -32,7 +33,8 @@ export async function generateMetadata({
 }
 
 export default async function AuthorPage({ params }: AuthorPageProps) {
-  const profile = await getAuthorProfile(params.userId);
+  const { userId } = await params;
+  const profile = await getAuthorProfile(userId);
 
   if (!profile) {
     notFound();
