@@ -10,10 +10,10 @@ import { notFound } from "next/navigation";
 export const dynamic = "force-dynamic";
 
 interface ArchiveMonthPageProps {
-  params: {
+  params: Promise<{
     year: string;
     month: string;
-  };
+  }>;
 }
 
 const MONTH_NAMES = [
@@ -34,8 +34,9 @@ const MONTH_NAMES = [
 export async function generateMetadata({
   params,
 }: ArchiveMonthPageProps): Promise<Metadata> {
-  const year = Number.parseInt(params.year, 10);
-  const month = Number.parseInt(params.month, 10);
+  const { year: yearStr, month: monthStr } = await params;
+  const year = Number.parseInt(yearStr, 10);
+  const month = Number.parseInt(monthStr, 10);
 
   if (Number.isNaN(year) || Number.isNaN(month) || month < 1 || month > 12) {
     return {
@@ -52,8 +53,9 @@ export async function generateMetadata({
 export default async function ArchiveMonthPage({
   params,
 }: ArchiveMonthPageProps) {
-  const year = Number.parseInt(params.year, 10);
-  const month = Number.parseInt(params.month, 10);
+  const { year: yearStr, month: monthStr } = await params;
+  const year = Number.parseInt(yearStr, 10);
+  const month = Number.parseInt(monthStr, 10);
 
   if (Number.isNaN(year) || Number.isNaN(month) || month < 1 || month > 12) {
     notFound();

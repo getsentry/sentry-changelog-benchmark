@@ -37,7 +37,7 @@ export async function createCategory(
       },
     });
 
-    revalidateTag("categories");
+    revalidateTag("categories", {});
     return { success: true };
   } catch (error: any) {
     if (error.code === "P2002") {
@@ -81,7 +81,7 @@ export async function updateCategory(
       },
     });
 
-    revalidateTag("categories");
+    revalidateTag("categories", {});
     return { success: true };
   } catch (error: any) {
     if (error.code === "P2002") {
@@ -117,7 +117,7 @@ export async function deleteCategory(
       },
     });
 
-    revalidateTag("categories");
+    revalidateTag("categories", {});
     return { success: true };
   } catch (error) {
     return {
@@ -184,8 +184,8 @@ export async function mergeCategories(
       },
     });
 
-    revalidateTag("categories");
-    revalidateTag("changelogs");
+    revalidateTag("categories", {});
+    revalidateTag("changelogs", {});
     return { success: true };
   } catch (error) {
     return {
