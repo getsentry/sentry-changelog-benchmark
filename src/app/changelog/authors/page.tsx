@@ -2,6 +2,8 @@ import { getAllAuthorsWithStats } from "@/server/actions/user";
 import type { Metadata } from "next";
 import Link from "next/link";
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "Authors - Sentry Changelog",
   description: "Browse all authors who contribute to the Sentry Changelog",

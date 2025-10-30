@@ -2,6 +2,8 @@ import { MonthCalendar } from "@/client/components/archive/monthCalendar";
 import { getArchiveMonths } from "@/server/actions/archive";
 import type { Metadata } from "next";
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "Archive - Sentry Changelog",
   description: "Browse Sentry Changelog archives by date",

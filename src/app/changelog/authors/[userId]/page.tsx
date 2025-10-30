@@ -4,6 +4,8 @@ import { getAuthorProfile } from "@/server/actions/user";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
+export const dynamic = "force-dynamic";
+
 interface AuthorPageProps {
   params: {
     userId: string;
