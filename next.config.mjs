@@ -1,7 +1,7 @@
-import { withSentryConfig } from "@sentry/nextjs";
+// import { withSentryConfig } from "@sentry/nextjs";
 
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+export default nextConfig = {
   trailingSlash: true,
   eslint: {
     ignoreDuringBuilds: true,
@@ -18,34 +18,34 @@ const nextConfig = {
   },
 };
 
-export default withSentryConfig(nextConfig, {
-  org: "sentry-sdks",
-  project: "changelog-benchmark",
+// export default withSentryConfig(nextConfig, {
+//   org: "sentry-sdks",
+//   project: "changelog-benchmark",
 
-  // Suppresses source map uploading logs during build
-  silent: !process.env.CI,
+//   // Suppresses source map uploading logs during build
+//   silent: !process.env.CI,
 
-  // Upload a larger set of source maps for prettier stack traces (increases build time)
-  widenClientFileUpload: true,
+//   // Upload a larger set of source maps for prettier stack traces (increases build time)
+//   widenClientFileUpload: true,
 
-  // Hides source maps from generated client bundles
-  hideSourceMaps: true,
+//   // Hides source maps from generated client bundles
+//   hideSourceMaps: true,
 
-  // Automatically tree-shake Sentry logger statements to reduce bundle size
-  disableLogger: process.env.NODE_ENV === "production",
+//   // Automatically tree-shake Sentry logger statements to reduce bundle size
+//   disableLogger: process.env.NODE_ENV === "production",
 
-  reactComponentAnnotation: {
-    enabled: true,
-  },
+//   reactComponentAnnotation: {
+//     enabled: true,
+//   },
 
-  unstable_sentryWebpackPluginOptions: {
-    applicationKey: "sentry-changelog-benchmark",
-  },
+//   unstable_sentryWebpackPluginOptions: {
+//     applicationKey: "sentry-changelog-benchmark",
+//   },
 
-  automaticVercelMonitors: true,
+//   automaticVercelMonitors: true,
 
-  _experimental: {
-    thirdPartyOriginStackFrames: true,
-    useRunAfterProductionCompileHook: true, // enables turbopack sourcemap uploads
-  },
-});
+//   _experimental: {
+//     thirdPartyOriginStackFrames: true,
+//     useRunAfterProductionCompileHook: true, // enables turbopack sourcemap uploads
+//   },
+// });
