@@ -1,7 +1,7 @@
 // import { withSentryConfig } from "@sentry/nextjs";
 
 /** @type {import('next').NextConfig} */
-export default nextConfig = {
+const nextConfig = {
   trailingSlash: true,
   eslint: {
     ignoreDuringBuilds: true,
@@ -17,6 +17,8 @@ export default nextConfig = {
     ];
   },
 };
+
+export default nextConfig;
 
 // export default withSentryConfig(nextConfig, {
 //   org: "sentry-sdks",
