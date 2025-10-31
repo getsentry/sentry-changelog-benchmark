@@ -46,6 +46,5 @@ export default withSentryConfig(nextConfig, {
 
   _experimental: {
     thirdPartyOriginStackFrames: true,
-    useRunAfterProductionCompileHook: true, // enables turbopack sourcemap uploads
   },
 });
