@@ -7,11 +7,8 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
   productionBrowserSourceMaps: true,
-  webpack: (config, { isServer }) => {
-    if (isServer) {
-      config.devtool = "source-map";
-    }
-    return config;
+  turbopack: {
+    debugIds: true,
   },
   transpilePackages: ["next-mdx-remote"],
   async redirects() {
