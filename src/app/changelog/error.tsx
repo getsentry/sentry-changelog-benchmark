@@ -1,7 +1,7 @@
 "use client"; // Error components must be Client Components
 
-import * as Sentry from "@sentry/nextjs";
-import { Fragment, useEffect } from "react";
+// import * as Sentry from "@sentry/nextjs";
+import { Fragment } from "react";
 
 export default function ErrorPage({
   error,
@@ -10,10 +10,6 @@ export default function ErrorPage({
   error: Error & { digest?: string };
   reset: () => void;
 }) {
-  useEffect(() => {
-    Sentry.captureException(error);
-  }, [error]);
-
   return (
     <Fragment>
       <div className="w-full mx-auto h-96 relative bg-darkPurple">

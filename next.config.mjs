@@ -1,4 +1,4 @@
-import { withSentryConfig } from "@sentry/nextjs";
+// import { withSentryConfig } from "@sentry/nextjs";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -18,34 +18,36 @@ const nextConfig = {
   },
 };
 
-export default withSentryConfig(nextConfig, {
-  org: "sentry-sdks",
-  project: "changelog-benchmark",
+export default nextConfig;
 
-  // Suppresses source map uploading logs during build
-  silent: !process.env.CI,
+// export default withSentryConfig(nextConfig, {
+//   org: "sentry-sdks",
+//   project: "changelog-benchmark",
 
-  // Upload a larger set of source maps for prettier stack traces (increases build time)
-  widenClientFileUpload: true,
+//   // Suppresses source map uploading logs during build
+//   silent: !process.env.CI,
 
-  // Hides source maps from generated client bundles
-  hideSourceMaps: true,
+//   // Upload a larger set of source maps for prettier stack traces (increases build time)
+//   widenClientFileUpload: true,
 
-  // Automatically tree-shake Sentry logger statements to reduce bundle size
-  disableLogger: process.env.NODE_ENV === "production",
+//   // Hides source maps from generated client bundles
+//   hideSourceMaps: true,
 
-  reactComponentAnnotation: {
-    enabled: true,
-  },
+//   // Automatically tree-shake Sentry logger statements to reduce bundle size
+//   disableLogger: process.env.NODE_ENV === "production",
 
-  unstable_sentryWebpackPluginOptions: {
-    applicationKey: "sentry-changelog-benchmark",
-  },
+//   reactComponentAnnotation: {
+//     enabled: true,
+//   },
 
-  automaticVercelMonitors: true,
+//   unstable_sentryWebpackPluginOptions: {
+//     applicationKey: "sentry-changelog-benchmark",
+//   },
 
-  _experimental: {
-    thirdPartyOriginStackFrames: true,
-    useRunAfterProductionCompileHook: true, // enables turbopack sourcemap uploads
-  },
-});
+//   automaticVercelMonitors: true,
+
+//   _experimental: {
+//     thirdPartyOriginStackFrames: true,
+//     useRunAfterProductionCompileHook: true, // enables turbopack sourcemap uploads
+//   },
+// });
