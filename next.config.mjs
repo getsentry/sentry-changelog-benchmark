@@ -23,7 +23,7 @@ export default withSentryConfig(nextConfig, {
   project: "changelog-benchmark",
 
   // Suppresses source map uploading logs during build
-  silent: !process.env.CI,
+  silent: false,
 
   // Upload a larger set of source maps for prettier stack traces (increases build time)
   widenClientFileUpload: true,
@@ -43,6 +43,8 @@ export default withSentryConfig(nextConfig, {
   },
 
   automaticVercelMonitors: true,
+
+  debug: true,
 
   _experimental: {
     thirdPartyOriginStackFrames: true,
