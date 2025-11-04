@@ -92,5 +92,10 @@
   "resolutions": {
     "@types/react": "npm:types-react@19.0.0-rc.1",
     "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1"
+  },
+  "pnpm": {
+    "overrides": {
+      "@sentry/cli-darwin@2.53.0": "git+https://github.com/getsentry/sentry-cli.git#szokeasaurusrex/no-chunk-cache-2.53.0&path:npm-binary-distributions/darwin"
+    }
   }
 }
