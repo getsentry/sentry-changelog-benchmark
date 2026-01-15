@@ -6,6 +6,10 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  productionBrowserSourceMaps: true,
+  turbopack: {
+    debugIds: true,
+  },
   transpilePackages: ["next-mdx-remote"],
   async redirects() {
     return [
@@ -36,6 +40,10 @@ export default withSentryConfig(nextConfig, {
 
   reactComponentAnnotation: {
     enabled: true,
+  },
+
+  sourcemaps: {
+    disable: true,
   },
 
   unstable_sentryWebpackPluginOptions: {
